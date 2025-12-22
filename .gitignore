@@ -1,0 +1,24 @@
+# Python
+venv/
+ufs_test/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+
+# Data
+data/
+backend/data/
+models/
+backend/models/
+
+# JS
+node_modules/
+dist/
+build/
+.npm/
+
+# IDE
+.vscode/
+.idea/
+sample-videos/
