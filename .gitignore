@@ -12,6 +12,10 @@ backend/data/
 models/
 backend/models/
 
+# Dev Scripts
+check_norm.py
+verify_samples.py
+
 # JS
 node_modules/
 dist/
