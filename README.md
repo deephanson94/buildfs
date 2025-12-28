@@ -2,6 +2,8 @@
 
 Full-stack application for searching content within video and audio files using text queries or similarity search.
 
+> **Note**: This repo is tested and runs well in WSL2.
+
 ## Tech Stack
 - **Backend**: Python, FastAPI, SQLite, SQLAlchemy, Redis, RQ
 - **Processing**: OpenCV (MobileNet SSD), OpenAI Whisper, SentenceTransformers, FAISS
