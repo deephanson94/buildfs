@@ -111,9 +111,21 @@ def mock_search_files(tmp_path):
         yield
 
 def test_health_check(test_db):
-    response = client.get("/health")
-    assert response.status_code == 200
-    assert response.json() == {"status": "healthy"}
+    # Mock Redis and search service for health check
+    with patch('app.main.redis_conn') as mock_redis, \
+         patch('app.main.search_service') as mock_search:
+        
+        mock_redis.ping.return_value = True
+        mock_search.is_loaded = True
+        
+        response = client.get("/health")
+        assert response.status_code == 200
+        json_response = response.json()
+        assert json_response["status"] == "healthy"
+        assert json_response["components"]["database"] == "healthy"
+        assert json_response["components"]["redis"] == "healthy"
+        assert json_response["components"]["search_service"] == "healthy"
+
 
 def test_video_processing_logic(test_db):
     """Test video processing logic with mocked OpenCV."""

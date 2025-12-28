@@ -16,7 +16,7 @@ describe('App/Dashboard Component', () => {
     it('renders the dashboard layout', () => {
         render(<App />);
         expect(screen.getByText(/UnifiedSearch/i)).toBeInTheDocument();
-        expect(screen.getByPlaceholderText(/Search library/i)).toBeInTheDocument();
+        expect(screen.getByPlaceholderText(/Search videos.*audio/i)).toBeInTheDocument();
         // Check for Upload button
         expect(screen.getByRole('button', { name: /Upload Media/i })).toBeInTheDocument();
     });
@@ -35,7 +35,8 @@ describe('App/Dashboard Component', () => {
         await waitFor(() => {
             expect(screen.getByText(/Media Library/i)).toBeInTheDocument();
         });
-        expect(screen.getByText(/Videos/i)).toBeInTheDocument();
-        expect(screen.getByText(/Audio Transcriptions/i)).toBeInTheDocument();
+        expect(screen.getByText(/All Media/i)).toBeInTheDocument();
+        expect(screen.getByText(/videos/i)).toBeInTheDocument();
+        expect(screen.getByText(/audios/i)).toBeInTheDocument();
     });
 });
