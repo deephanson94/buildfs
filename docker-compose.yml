@@ -26,6 +26,9 @@ services:
     depends_on:
       - redis
       - backend
+    # Scale up workers here for faster processing (requires more RAM)
+    deploy:
+      replicas: 1
 
   frontend:
     build: ./frontend
